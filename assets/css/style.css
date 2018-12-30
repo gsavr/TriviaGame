@@ -1,0 +1,63 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  html body{
+    align-content: center; 
+    background-color: #ecd340;
+    background-image: url("../images/family-guy.jpg"); 
+    background-size: 100%; 
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.jumbotron{
+  background: none;
+  padding:0px;
+}
+
+.jumbotron .imgBack{
+  background-image: url("../images/back_yellow.png"); 
+  opacity: 1;
+  margin:0px;
+}
+
+.gameOver{
+  display:none;
+}
+
+#correctPic{
+  display:none;
+}
+
+#incorrectPic{
+  display:none;
+}
+
+.choice{
+  display:none;
+}
+
+.btn{
+  background-color: #00a0d4;
+  border-color: black;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.btn:hover{
+  background-color: #ecd340;
+  border-color: black;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.btn:active{
+  background-color: #9e8d2d;
+  border-color: black;
+  color: black;
+  margin-bottom: 10px;
+}
+
