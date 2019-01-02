@@ -60,14 +60,14 @@ var triviaQ = {
         pic: "assets/images/adamwest.png",
     },
 
-    q7: {
+    q8: {
         question: "Who does Peter continue to get in a fight with?",
         options: ["A dog", "A bull", "A duck", "A chicken"],
         answer: "A chicken",
         pic: "assets/images/chicken.png",
     },
 
-    q8: {
+    q9: {
         question: "Where did Stewie train?",
         options: ["Right testicle bunker", "In the womb", "Testicular boot camp", "Anti-Lois foundation"],
         answer: "Testicular boot camp",
@@ -138,6 +138,10 @@ function newQuestion(){ //choose a new question in order automatically
         questionsUsed++;
     }
     else if(questionsUsed === 8){
+        currentQuestion = triviaQ.q9;
+        questionsUsed++;
+    }
+    else if(questionsUsed === 9){
         gameOver();
     }
     timer = 10;
