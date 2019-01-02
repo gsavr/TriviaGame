@@ -57,6 +57,7 @@ var correctPic = {
 $("#start").on("click", function(){ //start game when clicked on Start Game
     $("#start").hide();
     $(".gameOver").hide();
+    $("#endPic").empty();
 
     timerRunning=false;
     questionsUsed=0;
