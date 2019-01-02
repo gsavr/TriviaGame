@@ -46,6 +46,33 @@ var triviaQ = {
         pic: "assets/images/stew.png",
     },
 
+    q6: {
+        question: "What lives in Chris' closet?",
+        options: ["An evil monkey", "A bat", "The bogey man", "A gnome that steals things from him"],
+        answer: "An evil monkey",
+        pic: "assets/images/monkey.png",
+    },
+
+    q7: {
+        question: "Who is the mayor in Quahog?",
+        options: ["Cleveland Brown", "Adam West", "Tom Tucker", "Diane Simmons"],
+        answer: "Adam West",
+        pic: "assets/images/adamwest.png",
+    },
+
+    q7: {
+        question: "Who does Peter continue to get in a fight with?",
+        options: ["A dog", "A bull", "A duck", "A chicken"],
+        answer: "A chicken",
+        pic: "assets/images/chicken.png",
+    },
+
+    q8: {
+        question: "Where did Stewie train?",
+        options: ["Right testicle bunker", "In the womb", "Testicular boot camp", "Anti-Lois foundation"],
+        answer: "Testicular boot camp",
+        pic: "assets/images/bootcamp.png",
+    },
 }
 
 var correctPic = {
@@ -99,6 +126,18 @@ function newQuestion(){ //choose a new question in order automatically
         questionsUsed++;
     }
     else if(questionsUsed === 5){
+        currentQuestion = triviaQ.q6;
+        questionsUsed++;
+    }
+    else if(questionsUsed === 6){
+        currentQuestion = triviaQ.q7;
+        questionsUsed++;
+    }
+    else if(questionsUsed === 7){
+        currentQuestion = triviaQ.q8;
+        questionsUsed++;
+    }
+    else if(questionsUsed === 8){
         gameOver();
     }
     timer = 10;
