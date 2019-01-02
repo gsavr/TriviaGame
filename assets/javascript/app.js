@@ -7,7 +7,7 @@ var currentAnswer = "";
 var timerCount;
 var timerRunning=false;
 var questionsUsed = 0;
-var endPic = ["assets/images/end/chris.png", "assets/images/end/cleveland.png", "assets/images/end/glenn.png", "assets/images/end/lois.png", "assets/images/end/peter.png", "assets/images/end/stewart.png"]
+var endPic = ["assets/images/end/chris.png", "assets/images/end/cleveland.png", "assets/images/end/glenn.png", "assets/images/end/lois.png", "assets/images/end/peter.png", "assets/images/end/stewart.png"];
 
 
 var triviaQ = {
@@ -186,6 +186,10 @@ function timeUp(){
 }
 
 function gameOver(){
+    var ranPic = endPic[Math.floor(Math.random() * endPic.length)];
+    console.log(ranPic)
+    $("#endPic").html('<img src="' + ranPic + '" height=250px style="display:inline-block;" />');
+
     $(".question").hide();
     $(".timer").hide();
     $(".choice").hide();
