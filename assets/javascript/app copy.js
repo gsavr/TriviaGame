@@ -7,7 +7,6 @@ var currentAnswer = "";
 var timerCount;
 var timerRunning=false;
 var questionsUsed = 0;
-var endPic = ["assets/images/end/chris.png", "assets/images/end/cleveland.png", "assets/images/end/glenn.png", "assets/images/end/lois.png", "assets/images/end/peter.png", "assets/images/end/stewart.png"]
 
 
 var triviaQ = {
@@ -48,18 +47,8 @@ var triviaQ = {
 
 }
 
-var correctPic = {
-    correct : "assets/images/Glen-Quagmire.png",
-    incorrect: "assets/images/Consuela.png", 
-    timeout: "assets/images/peterdrunk.png",
-}
-
 $("#start").on("click", function(){ //start game when clicked on Start Game
-    $("#start").hide();
-    $(".gameOver").hide();
-
-    timerRunning=false;
-    questionsUsed=0;
+    $("#start").css("display", "none");
             
     newQuestion();
 
@@ -67,9 +56,9 @@ $("#start").on("click", function(){ //start game when clicked on Start Game
 
 function newQuestion(){ //choose a new question in order automatically
     $(".timer").show(); 
-    $(".question").show();
     $(".choice").show();
-    $("#correctPic").empty();
+    $("#correctPic").hide();
+    $("#incorrectPic").hide();
     $("#answerPic").empty();
     $("#answerWas").empty()
 
@@ -137,35 +126,32 @@ $(".choice").on("click", function(){
 
 function timerStop(){
     clearInterval(timerCount)
-    
 }
 
 function correctAnswer(){
     correct++;
-    $(".timer").hide(); 
-    $("#correctPic").html('<img src="' + correctPic.correct + '" height=250px />');
+    $("#correctPic").show();
     $("#answerWas").text(currentAnswer+"!");
     $(".choice").hide();
     $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
-        }, 3000);
+        }, 3500);
 
         console.log("#correct:"+correct)
 }
 
 function wrongAnswer(){
     incorrect++;
-    $(".timer").hide(); 
-    $("#correctPic").html('<img src="' + correctPic.incorrect + '" height=250px />');
+    $("#incorrectPic").show();
     $("#answerWas").text("The correct answer was "+ currentAnswer);
     $(".choice").hide();
     $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
-        }, 3000);
+        }, 3500);
 
         console.log("#incorrect:"+incorrect)
 }
@@ -173,28 +159,14 @@ function wrongAnswer(){
 function timeUp(){
     $(".timer").hide();
     unanswered++;
-    $("#correctPic").html('<img src="' + correctPic.timeout + '" height=250px />');
+    $("#incorrectPic").show();
     $("#answerWas").text("You ran out of time, the correct answer was "+ currentAnswer);
     $(".choice").hide();
     $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
-        }, 3000);
+        }, 3500);
 
         console.log("#unanswered:"+unanswered)
-}
-
-function gameOver(){
-    $(".question").hide();
-    $(".timer").hide();
-    $(".choice").hide();
-    $(".gameOver").show();
-    $("#correct").text(correct);
-    $("#incorrect").text(incorrect);
-    $("#unanswered").text(unanswered);
-    $("#start").show();
-    timerStop();
-    timerRunning=true;
-
 }

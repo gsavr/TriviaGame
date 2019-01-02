@@ -28,12 +28,8 @@ html {
   display:none;
 }
 
-#correctPic{
-  display:none;
-}
-
-#incorrectPic{
-  display:none;
+.timer{
+  display: none;
 }
 
 .choice{
