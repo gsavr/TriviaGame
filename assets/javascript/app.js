@@ -55,6 +55,10 @@ var correctPic = {
 }
 
 $("#start").on("click", function(){ //start game when clicked on Start Game
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+
     $("#start").hide();
     $(".gameOver").hide();
     $("#endPic").empty();
