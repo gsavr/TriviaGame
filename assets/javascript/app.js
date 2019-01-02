@@ -1,7 +1,7 @@
-var correct = 0;
-var incorrect = 0;
-var unanswered = 0;
-var timer = 10;
+var correct = "";
+var incorrect = "";
+var unanswered = "";
+var timer = "";
 var currentQuestion;
 var currentAnswer = "";
 var timerCount;
