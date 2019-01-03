@@ -60,5 +60,6 @@ html {
 @media screen and (max-width: 800px) {
   .btn:hover{
     background-color: #00a0d4;
+  }
 }
 

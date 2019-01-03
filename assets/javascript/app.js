@@ -165,7 +165,7 @@ function newQuestion(){ //choose a new question in order automatically
         $("#timer").text(timer);
         if(timer===-1){
             console.log("time is up")
-            timeUp()
+            timeUp(media)
         } 
     }
     if(!timerRunning){
@@ -176,10 +176,10 @@ function newQuestion(){ //choose a new question in order automatically
 
 $(".choice").on("click", function(){
     if($(this).text() === currentAnswer){
-        correctAnswer()
+        correctAnswer(media)
     }
     else{
-        wrongAnswer()
+        wrongAnswer(media)
     }
 });
 
@@ -188,13 +188,23 @@ function timerStop(){
     
 }
 
+var media = window.matchMedia("(max-width: 500px)");
+media.addListener(correctAnswer);
+media.addListener(wrongAnswer);
+media.addListener(timeUp);
+
 function correctAnswer(){
     correct++;
     $(".timer").hide(); 
     $("#correctPic").html('<img src="' + correctPic.correct + '" height=250px />');
     $("#answerWas").text(currentAnswer+"!");
     $(".choice").hide();
-    $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    if(media.matches){
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" width=150px />');
+    }
+    else{
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    }
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
@@ -209,7 +219,12 @@ function wrongAnswer(){
     $("#correctPic").html('<img src="' + correctPic.incorrect + '" height=250px />');
     $("#answerWas").text("The correct answer was "+ currentAnswer);
     $(".choice").hide();
-    $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    if(media.matches){
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" width=150px />');
+    }
+    else{
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    }
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
@@ -224,7 +239,12 @@ function timeUp(){
     $("#correctPic").html('<img src="' + correctPic.timeout + '" height=250px />');
     $("#answerWas").text("You ran out of time, the correct answer was "+ currentAnswer);
     $(".choice").hide();
-    $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    if(media.matches){
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" width=150px />');
+    }
+    else{
+        $("#answerPic").html('<img src="' + currentQuestion.pic + '" height=200px />');
+    }
     var nextQ = setTimeout(function() {
         timerStop();
         newQuestion();
