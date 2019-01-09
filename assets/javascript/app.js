@@ -74,8 +74,6 @@ var triviaQ = [
         pic: "assets/images/bootcamp.png",
     },
 ];
-console.log(triviaQ[questionNum].answer)
-
 
 var correctPic = {
     correct : "assets/images/Glen-Quagmire.png",
@@ -96,7 +94,6 @@ $("#start").on("click", function(){ //start game when clicked on Start Game
     questionNum=0;
             
     newQuestion();
-
 });
 
 function newQuestion(){ //choose a new question in order automatically
@@ -134,21 +131,20 @@ function newQuestion(){ //choose a new question in order automatically
         $("#timer").text(timer);
         if(timer===-1){
             console.log("time is up")
-            timeUp(media)
+            timeUp()
         } 
     }
     if(!timerRunning){
         timerCount = setInterval(timerCountdown, 1000);
     };
-
 }
 
 $(".choice").on("click", function(){
     if($(this).text() === currentAnswer){
-        correctAnswer(media)
+        correctAnswer()
     }
     else{
-        wrongAnswer(media)
+        wrongAnswer()
     }
 });
 
@@ -157,9 +153,7 @@ function timerStop(){
 }
 
 var media = window.matchMedia("(max-width: 500px)");
-media.addListener(correctAnswer);
-media.addListener(wrongAnswer);
-media.addListener(timeUp);
+media.addListener(nextQ);
 
 function nextQ(){
     questionNum++;
@@ -184,7 +178,7 @@ function correctAnswer(){
     $("#correctPic").html('<img src="' + correctPic.correct + '" height=250px />');
     $("#answerWas").text(currentAnswer+"!");
     
-    nextQ()
+    nextQ(media)
     console.log("#correct:"+correct)
 }
 
@@ -193,7 +187,7 @@ function wrongAnswer(){
     $("#correctPic").html('<img src="' + correctPic.incorrect + '" height=250px />');
     $("#answerWas").text("The correct answer was "+ currentAnswer);
     
-    nextQ()
+    nextQ(media)
     console.log("#incorrect:"+incorrect)
 }
 
@@ -202,7 +196,7 @@ function timeUp(){
     $("#correctPic").html('<img src="' + correctPic.timeout + '" height=250px />');
     $("#answerWas").text("You ran out of time, the correct answer was "+ currentAnswer);
    
-    nextQ()
+    nextQ(media)
     console.log("#unanswered:"+unanswered)
 }
 
