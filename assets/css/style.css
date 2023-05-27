@@ -1,65 +1,88 @@
 html {
-    position: relative;
-    min-height: 100%;
-  }
-
-  html body{
-    align-content: center; 
-    background-color: #ecd340;
-    background-image: url("../images/family-guy.jpg"); 
-    background-size: 100%; 
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-position: bottom;
+  position: relative;
+  min-height: 100%;
 }
 
-.jumbotron{
+html body {
+  align-content: center;
+  background-color: #ecd340;
+  background-image: url("../images/family-guy.jpg");
+  background-size: 100%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.jumbotron {
   background: none;
-  padding:0px;
+  padding: 0px;
 }
 
-.jumbotron .imgBack{
-  background-image: url("../images/back_yellow.png"); 
+.jumbotron .imgBack {
+  background-image: url("../images/back_yellow.png");
   opacity: 1;
-  margin:0px;
+  margin: 0px;
 }
 
-.gameOver{
-  display:none;
-}
-
-.timer{
+.gameOver {
   display: none;
 }
 
-.choice{
-  display:none;
+.timer {
+  display: none;
 }
 
-.btn{
+.choice {
+  display: none;
+}
+
+.btn {
   background-color: #00a0d4;
   border-color: black;
   color: black;
   margin-bottom: 10px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #ecd340;
   border-color: black;
   color: black;
   margin-bottom: 10px;
 }
 
-.btn:active{
+.btn:active {
   background-color: #00a0d4;
   border-color: black;
   color: black;
   margin-bottom: 10px;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left-auto;
+  margin-right: auto;
+}
+
+.f-links {
+  display: flex;
+}
+
+.f-icon {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
 @media screen and (max-width: 800px) {
-  .btn:hover{
+  .btn:hover {
     background-color: #00a0d4;
   }
 }
-
