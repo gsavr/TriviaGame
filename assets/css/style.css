@@ -85,4 +85,16 @@ html body {
   .btn:hover {
     background-color: #00a0d4;
   }
+  .footer {
+    font-size: 0.8rem;
+    position: fixed;
+    bottom: -3px;
+    margin:0;
+    padding: 2px;
+  }
+  .f-icon {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+  }
 }
