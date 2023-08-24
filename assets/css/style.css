@@ -1,6 +1,6 @@
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 html body {
@@ -8,6 +8,7 @@ html body {
   background-color: #ecd340;
   background-image: url("../images/family-guy.jpg");
   background-size: 100%;
+  min-height: 100vh;
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-position: bottom;
